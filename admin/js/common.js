@@ -632,8 +632,10 @@ var qTranslateX=function(pg)
 			var mce = h.mce && !h.mce.hidden;
 			if(mce){
 				h.mce.save({format: 'html'});
-			}
-			h.fields[h.lang].value = h.contentField.value;
+				h.fields[h.lang].value = h.mce.getContent({format: 'html'});
+			} else {
+				h.fields[h.lang].value = h.contentField.value;
+			}			
 			h.lang = lang;
 			var value = h.fields[h.lang].value;
 			if(h.contentField.placeholder && value != ''){//since 3.2.7
